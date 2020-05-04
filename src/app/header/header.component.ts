@@ -6,16 +6,23 @@ import { HeaderService } from './header.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
+  public value;
+  public valueList;
   constructor(private headerService: HeaderService) { }
 
-  getData(data) {
-    console.log(data);
+
+
+  getInput(){
+    const that = this;
+    function getData(data) {
+      console.log(data);
+      that.valueList = data;
+      console.log(that.value);
+    }
+    this.headerService.getMoviesListByTitle(this.value, getData);
   }
 
-  ngOnInit(): void {
-    this.headerService.getMoviesListByTitle('Lorem', this.getData);
-  }
 
 }

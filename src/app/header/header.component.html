@@ -1,16 +1,18 @@
 <nav class="panel">
   <div class="panel-block">
     <p class="control has-icons-left">
-      <input class="input" type="text" placeholder="Search">
+      <input class="input" type="text" placeholder="Search" [(ngModel)]="value">
       <span class="icon is-left">
         <i class="fas fa-search" aria-hidden="true"></i>
       </span>
-    </p>
+      <div class="buttons">
+        <button class="button is-primary" (click)="getInput()">Search</button>
+      </div>
   </div>
-  <a class="panel-block is-active">
+  <a class="panel-block is-active" *ngFor="let movie of valueList">
     <span class="panel-icon">
-      <i class="fas fa-book" aria-hidden="true"></i>
+      <i class="fas fa-video" aria-hidden="true"></i>
     </span>
-    bulma
+    {{movie["title"]}}
   </a>
 </nav>

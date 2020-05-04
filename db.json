@@ -15,19 +15,19 @@
     {
       "id": "3",
       "url": false,
-      "name": "Scelerisque finibus ligula elit ut magna",
+      "title": "Scelerisque finibus ligula elit ut magna",
       "description": "Cras eget maximus tortor, in tempor tellus. Donec tempus ultrices diam ut efficitur. Morbi maximus interdum velit, molestie ultrices lorem dignissim vitae."
     },
     {
       "id": "4",
       "url": false,
-      "name": "Donec sagittis nisi vitae nulla congue mollis.",
+      "title": "Donec sagittis nisi vitae nulla congue mollis.",
       "description": "felis vitae rutrum accumsan, nisl enim condimentum justo, id aliquet nibh urna eget ante. Phasellus urna ex, dapibus et venenatis in, molestie a ligula"
     },
     {
       "id": "5",
       "url": false,
-      "name": "Nam hendrerit, felis vitae rutrum accumsan.",
+      "title": "Nam hendrerit, felis vitae rutrum accumsan.",
       "description": "Mauris sollicitudin dignissim tellus venenatis vestibulum."
     }
   ]
