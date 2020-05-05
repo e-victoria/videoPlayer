@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column is-12 box has-text-centered">
         <figure class="image is-16by9">
-          <video src="{{movie.url}}" class="has-ratio" width="640" height="360" #video id="video" frameborder="0" allowfullscreen></video>
+          <video class="has-ratio" width="640" height="360" #video id="video" frameborder="0" allowfullscreen></video>
         </figure>
         <div class="btn-wrapper box is-centered buttons are-small">
           <button class="button is-focused"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true" (click)="playSlower()"></i></button>
@@ -12,11 +12,9 @@
           <button class="button is-focused"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true" (click)="playFaster()"></i></button>
         </div>
       <br>
-        <div class="video-title">{{movie.title}}</div>
+        <div #title class="video-title"></div>
         <br>
-        <article class="media has-text-centered">
-            {{movie.description}}
-        </article>
+        <article #description class="media has-text-centered"></article>
       </div>
     </div>
   </div>

@@ -16,6 +16,10 @@ export class VideoComponent implements OnInit {
 
   @ViewChild('video')
   private myVideo: ElementRef;
+  @ViewChild('title')
+  private title: ElementRef;
+  @ViewChild('description')
+  private description: ElementRef;
 
   constructor(private videoService: VideoService, private router: Router) {
     this.frameTime = 1 / 25;
@@ -23,8 +27,18 @@ export class VideoComponent implements OnInit {
 
   ngOnInit(): void {
     const that = this;
+
     function getData(data) {
       that.movie = data;
+
+      if (data['url'] === false) {
+        that.myVideo.nativeElement.setAttribute('poster', `../../assets/img/${data.thumbnail}`);
+      } else {
+        that.myVideo.nativeElement.setAttribute('src', data['url']);
+      }
+
+      that.title.nativeElement.textContent = that.movie.title;
+      that.description.nativeElement.textContent = that.movie.description;
     }
 
     const moviesList = document.querySelector('.movies-wrapper');
