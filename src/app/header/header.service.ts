@@ -9,13 +9,12 @@ import IVideo from "../video/video";
 
 export class HeaderService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getMoviesListByTitle (searchPhrase: string, callback) {
     this.http.get((`${environment.localHost}movie?q=${searchPhrase}`)).subscribe(
-      (res) => {
-        callback(<IVideo[]>res);
+      (res: IVideo[]) => {
+        callback(res);
       });
   }
 

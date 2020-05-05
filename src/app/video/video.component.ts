@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { VideoService } from "./video.service";
 import {Router} from "@angular/router";
 import IVideo from "./video";
@@ -11,14 +11,19 @@ import IVideo from "./video";
 export class VideoComponent implements OnInit {
 
   private movieId: string;
-  public movie: IVideo;
+  movie: IVideo;
+  frameTime: number;
 
-  constructor(public videoService: VideoService, private router: Router) {}
+  @ViewChild('video')
+  private myVideo: ElementRef;
+
+  constructor(private videoService: VideoService, private router: Router) {
+    this.frameTime = 1 / 25;
+  }
 
   ngOnInit(): void {
     const that = this;
     function getData(data) {
-      console.log(data);
       that.movie = data;
     }
 
@@ -28,10 +33,27 @@ export class VideoComponent implements OnInit {
     this.movieId = this.router.url.split('/').pop();
 
     this.videoService.getMoviesListById(this.movieId, getData);
-
   }
 
+  playPause(): void{
+    const playIcon = document.getElementById("playIcon");
+    playIcon.classList.remove("fa-play");
+    playIcon.classList.add("fa-pause");
+    if (this.myVideo.nativeElement.paused){
+      this.myVideo.nativeElement.play();
+    }
+    else{
+      this.myVideo.nativeElement.pause();
+      playIcon.classList.remove("fa-pause");
+      playIcon.classList.add("fa-play");
+    }
+  }
 
+  playForward(): void {
+    this.myVideo.nativeElement.currentTime = Math.min(this.myVideo.nativeElement.duration, this.myVideo.nativeElement.currentTime + this.frameTime);
+  }
 
-
+  playBackward(): void {
+    this.myVideo.nativeElement.currentTime = Math.min(this.myVideo.nativeElement.duration, this.myVideo.nativeElement.currentTime - this.frameTime);
+  }
 }

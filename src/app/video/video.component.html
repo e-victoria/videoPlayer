@@ -1,5 +1,7 @@
-<p>video works!</p>
-
-<video src="{{movie.url}}" height="240" width="320" id="video"></video>
-<button><i class="fas fa-play" id="playIcon" aria-hidden="true" (click)="videoService.playPause()"></i></button>
+<video src="{{movie.url}}" height="240" width="320" #video id="video"></video>
+<div class="btn-wrapper">
+  <button><i class="fas fa-backward" id="backwardIcon" aria-hidden="true" (click)="playBackward()"></i></button>
+  <button><i class="fas fa-play" id="playIcon" aria-hidden="true" (click)="playPause()"></i></button>
+  <button><i class="fas fa-forward" id="forwardIcon" aria-hidden="true" (click)="playForward(10)"></i></button>
+</div>
 <router-outlet></router-outlet>
