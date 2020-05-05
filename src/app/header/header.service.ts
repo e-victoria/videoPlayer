@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import IMovie from "./movie";
+import IVideo from "../video/video";
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,12 @@ import IMovie from "./movie";
 
 export class HeaderService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getMoviesListByTitle (searchPhrase: string, callback) {
     this.http.get((`${environment.localHost}movie?q=${searchPhrase}`)).subscribe(
-      (res) => {
-        callback(<IMovie[]>res);
+      (res: IVideo[]) => {
+        callback(res);
       });
   }
 
