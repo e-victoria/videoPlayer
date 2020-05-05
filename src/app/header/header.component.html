@@ -9,10 +9,13 @@
         <button class="button is-primary" (click)="getInput()">Search</button>
       </div>
   </div>
-  <a class="panel-block is-active" *ngFor="let movie of valueList">
+  <div *ngFor="let movie of valueList">
+    <a [routerLink]="['/video', movie.id]" class="panel-block is-active">
     <span class="panel-icon">
       <i class="fas fa-video" aria-hidden="true"></i>
     </span>
-    {{movie["title"]}}
-  </a>
+    {{movie.title}}
+    </a>
+  </div>
 </nav>
+<router-outlet></router-outlet>
