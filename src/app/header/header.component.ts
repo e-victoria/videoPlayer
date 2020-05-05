@@ -12,8 +12,6 @@ export class HeaderComponent {
   public valueList;
   constructor(private headerService: HeaderService) { }
 
-
-
   getInput(){
     const that = this;
     function getData(data) {

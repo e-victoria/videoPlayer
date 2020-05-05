@@ -10,6 +10,8 @@ export class VideoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const moviesList = document.querySelector('.movies-wrapper');
+    moviesList.innerHTML = '';
   }
 
 }
