@@ -56,4 +56,11 @@ export class VideoComponent implements OnInit {
   playBackward(): void {
     this.myVideo.nativeElement.currentTime = Math.min(this.myVideo.nativeElement.duration, this.myVideo.nativeElement.currentTime - this.frameTime);
   }
+
+  playFaster(): void{
+    this.myVideo.nativeElement.playbackRate = 2.0;
+  }
+  playSlower(): void{
+    this.myVideo.nativeElement.playbackRate = 0.5;
+  }
 }
