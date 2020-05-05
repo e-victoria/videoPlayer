@@ -1,2 +1,5 @@
 <p>video works!</p>
+
+<video src="{{movie.url}}" height="240" width="320" id="video"></video>
+<button><i class="fas fa-play" id="playIcon" aria-hidden="true" (click)="videoService.playPause()"></i></button>
 <router-outlet></router-outlet>
