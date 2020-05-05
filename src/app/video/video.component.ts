@@ -23,7 +23,14 @@ export class VideoComponent implements OnInit {
 
   ngOnInit(): void {
     const that = this;
+
     function getData(data) {
+      if (data['url'] === false) {
+        that.myVideo.nativeElement.setAttribute('poster', `../../assets/img/${data.thumbnail}`);
+      } else {
+        that.myVideo.nativeElement.setAttribute('src', data['url']);
+      }
+
       that.movie = data;
     }
 

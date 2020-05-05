@@ -12,9 +12,7 @@
   <div class="movies-wrapper">
     <div *ngFor="let movie of valueList">
       <a [routerLink]="['/video', movie.id]" class="panel-block is-active">
-        <span class="panel-icon">
-          <i class="fas fa-video" aria-hidden="true"></i>
-        </span>
+        <img class="movies__screenshot" src="../../assets/img/{{movie['thumbnail']}}">
         {{movie.title}}
       </a>
     </div>
