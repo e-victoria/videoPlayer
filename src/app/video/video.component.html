@@ -12,11 +12,9 @@
           <button class="button is-focused"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true" (click)="playFaster()"></i></button>
         </div>
       <br>
-        <div class="video-title">{{movie.title}}</div>
+        <div #title class="video-title"></div>
         <br>
-        <article class="media has-text-centered">
-            {{movie.description}}
-        </article>
+        <article #description class="media has-text-centered"></article>
       </div>
     </div>
   </div>
