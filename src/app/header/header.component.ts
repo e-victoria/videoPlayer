@@ -15,9 +15,7 @@ export class HeaderComponent {
   getInput(){
     const that = this;
     function getData(data) {
-      console.log(data);
       that.valueList = data;
-      console.log(that.value);
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
   }

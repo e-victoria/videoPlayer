@@ -14,6 +14,8 @@ export class VideoComponent implements OnInit {
   movie: IVideo;
   frameTime: number;
 
+  @ViewChild('controls')
+  private controls: ElementRef;
   @ViewChild('video')
   private myVideo: ElementRef;
   @ViewChild('title')
@@ -39,6 +41,7 @@ export class VideoComponent implements OnInit {
 
       that.title.nativeElement.textContent = that.movie.title;
       that.description.nativeElement.textContent = that.movie.description;
+      that.hideControls();
     }
 
     const moviesList = document.querySelector('.movies-wrapper');
@@ -49,17 +52,24 @@ export class VideoComponent implements OnInit {
     this.videoService.getMoviesListById(this.movieId, getData);
   }
 
-  playPause(): void{
-    const playIcon = document.getElementById("playIcon");
-    playIcon.classList.remove("fa-play");
-    playIcon.classList.add("fa-pause");
-    if (this.myVideo.nativeElement.paused){
-      this.myVideo.nativeElement.play();
+  hideControls() {
+    if(!this.myVideo.nativeElement.getAttribute('src')) {
+      this.controls.nativeElement.style.display = 'none';
     }
-    else{
-      this.myVideo.nativeElement.pause();
-      playIcon.classList.remove("fa-pause");
-      playIcon.classList.add("fa-play");
+  }
+
+  playPause(): void{
+    if (this.movie.url) {
+      const playIcon = document.getElementById("playIcon");
+      playIcon.classList.remove("fa-play");
+      playIcon.classList.add("fa-pause");
+      if (this.myVideo.nativeElement.paused) {
+        this.myVideo.nativeElement.play();
+      } else {
+        this.myVideo.nativeElement.pause();
+        playIcon.classList.remove("fa-pause");
+        playIcon.classList.add("fa-play");
+      }
     }
   }
 
@@ -72,7 +82,7 @@ export class VideoComponent implements OnInit {
   }
 
   playFaster(): void{
-    this.myVideo.nativeElement.playbackRate = 2.0;
+      this.myVideo.nativeElement.playbackRate = 2.0;
   }
   playSlower(): void{
     this.myVideo.nativeElement.playbackRate = 0.5;
