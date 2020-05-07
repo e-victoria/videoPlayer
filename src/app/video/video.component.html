@@ -4,7 +4,7 @@
         <figure class="image is-16by9">
           <video (click)="playPause()" class="has-ratio" width="640" height="360" #video id="video" frameborder="0" allowfullscreen></video>
         </figure>
-        <div class="btn-wrapper box is-centered buttons are-small">
+        <div #controls class="btn-wrapper box is-centered buttons are-small">
           <button class="button is-focused"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true" (click)="playSlower()"></i></button>
           <button class="button is-info is-focused"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true" (click)="playBackward()"></i></button>
           <button class="button is-primary is-focused"><i class="fas fa-play" id="playIcon" aria-hidden="true" (click)="playPause()"></i></button>
