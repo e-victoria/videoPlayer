@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HeaderService } from './header.service';
+import IVideo from '../video/video';
 
 @Component({
   selector: 'app-header',
@@ -7,18 +8,16 @@ import { HeaderService } from './header.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  value: string;
+  searchResults: IVideo[];
 
-  public value;
-  public valueList;
   constructor(private headerService: HeaderService) { }
 
-  getInput(){
+  getInput() {
     const that = this;
     function getData(data) {
-      that.valueList = data;
+      that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
   }
-
-
 }
