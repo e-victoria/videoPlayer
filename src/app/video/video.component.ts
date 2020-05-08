@@ -18,10 +18,6 @@ export class VideoComponent implements OnInit {
   private controls: ElementRef;
   @ViewChild('video')
   private myVideo: ElementRef;
-  @ViewChild('title')
-  private title: ElementRef;
-  @ViewChild('description')
-  private description: ElementRef;
 
   constructor(private videoService: VideoService, private router: Router) {
     this.frameTime = 1 / 25;
@@ -39,8 +35,6 @@ export class VideoComponent implements OnInit {
         that.myVideo.nativeElement.setAttribute('src', data['url']);
       }
 
-      that.title.nativeElement.textContent = that.movie.title;
-      that.description.nativeElement.textContent = that.movie.description;
       that.hideControls();
     }
 
