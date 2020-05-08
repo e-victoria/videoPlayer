@@ -20,12 +20,10 @@
           <button class="button is-focused" (click)="playFaster()"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true"></i></button>
         </div>
       <br>
-        <div class="video-title">{{movie.title}}</div>
+        <div class="video-title">{{movie?.title}}</div>
         <br>
-        <article class="media has-text-centered">{{movie.description}}</article>
+        <article class="media has-text-centered">{{movie?.description}}</article>
       </div>
     </div>
   </div>
-
-<router-outlet></router-outlet>
 
