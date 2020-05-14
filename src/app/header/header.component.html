@@ -18,4 +18,15 @@
     </div>
   </div>
 </nav>
+
+<div #showMovieList class="showMovieList">
+      <div class="showMovieList__item" *ngFor="let movie of videoList">
+        <a [routerLink]="['/video', movie.id]" class="showMovieList__link">
+          <img class="movies__screenshot" src="../../assets/img/{{movie['thumbnail']}}" (click)="hideHomepage()">
+        </a>
+        <p class="title is-4">{{movie.title}}</p>
+      </div>
+</div>
+
 <router-outlet></router-outlet>
+

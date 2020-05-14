@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {ElementRef, Injectable, ViewChild} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import IVideo from "../video/video";
@@ -9,6 +9,9 @@ import IVideo from "../video/video";
 
 export class HeaderService {
 
+  @ViewChild('showMovieList')
+  private showMovieList: ElementRef;
+
   constructor(private http: HttpClient) {}
 
   getMoviesListByTitle (searchPhrase: string, callback) {
@@ -17,5 +20,14 @@ export class HeaderService {
         callback(res);
       });
   }
+
+  getAllMovies(callback) {
+    this.http.get((`${environment.localHost}movie`)).subscribe(
+      (res: IVideo[]) => {
+        callback(res);
+      });
+  }
+
+
 
 }
