@@ -1,0 +1,22 @@
+
+<div class="sign-up-wrapper">
+  <form class="sign-up__form" [formGroup]="signupForm">
+    <button class="btn popup-close" (click)="hidePopup($event)">
+      <span class="popup-closecross">close</span>
+    </button>
+    <h3 class="signup__title">Sign Up</h3>
+    <label class="signup__label">
+      Email:
+      <input class="input signup__input" type="text" formControlName="email" required autofocus>
+    </label>
+    <label class="signup__label">
+      Password:
+      <input class="input signup__input" type="password" formControlName="password" required>
+    </label>
+    <label class="signup__label">
+      Password confirmation:
+      <input class="input signup__input" type="password" formControlName="passwordConfirmation" required>
+    </label>
+    <button class="signup btn" (click)="signUp($event)">Sign Up!</button>
+  </form>
+</div>
