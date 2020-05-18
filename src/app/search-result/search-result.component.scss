@@ -1,12 +1,23 @@
 .video__wrapper {
   display: flex;
-  margin-top: 1em;
   align-items: center;
   cursor: pointer;
+  background-color: white;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li{
+    display: flex;
+  }
 }
 
 .video__description {
   padding: 0;
+
 }
 
 .video__screenshot {
@@ -14,4 +25,15 @@
   height: auto;
   margin-right: 1vw;
 }
+
+p{
+  display: inline-block;
+  float: right;
+  padding-top: 5px;
+  padding-left: 300px;
+  width: 80%;
+}
+
+
+
 
