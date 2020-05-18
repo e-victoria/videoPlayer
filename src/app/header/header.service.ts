@@ -21,13 +21,4 @@ export class HeaderService {
       });
   }
 
-  getAllMovies(callback) {
-    this.http.get((`${environment.localHost}movie`)).subscribe(
-      (res: IVideo[]) => {
-        callback(res);
-      });
-  }
-
-
-
 }

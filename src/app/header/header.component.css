@@ -3,24 +3,3 @@
   height: 8vw;
   margin-right: 1.5vw;
 }
-
-.showMovieList {
-  display: grid;
-  padding: 2em 2.6vw;
-  grid-template-columns: repeat(4, 22.75%);
-  gap: 2em 3%;
-  box-sizing: border-box;
-}
-
-.showMovieList__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.showMovieList__item .movies__screenshot {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1em;
-}
-

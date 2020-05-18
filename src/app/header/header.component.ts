@@ -1,5 +1,5 @@
 
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import { HeaderService } from './header.service';
 import IVideo from '../video/video';
 import {VideoData} from '../search-result/videoData';
@@ -10,16 +10,12 @@ import {VideoData} from '../search-result/videoData';
   styleUrls: ['./header.component.css']
 })
 
-export class HeaderComponent implements OnInit{
-
-  public value;
-  public valueList;
-  public videoList;
+export class HeaderComponent {
 
   @ViewChild('showMovieList')
   private showMovieList: ElementRef;
-  
-    @Output()
+
+  @Output()
   videoSelected: EventEmitter<VideoData> = new EventEmitter<VideoData>();
   value: string;
   searchResults: IVideo[];
@@ -32,25 +28,10 @@ export class HeaderComponent implements OnInit{
       that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
-    this.hideHomepage();
   }
 
 
   onVideoSelect($event: VideoData) {
     this.videoSelected.emit($event);
-  }
-
-  ngOnInit(): void {
-    const that = this;
-    function getMovie(data) {
-      that.videoList = data;
-      console.log(data)
-    }
-    this.headerService.getAllMovies(getMovie);
-  }
-
-  hideHomepage(){
-    const hide = this.showMovieList;
-    hide.nativeElement.style.display = 'none';
   }
 }
