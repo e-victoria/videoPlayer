@@ -7,12 +7,14 @@ import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {VideoComponent} from './video/video.component';
+import {SearchResultComponent} from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    VideoComponent
+    VideoComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { HeaderService } from './header.service';
 import IVideo from '../video/video';
+import {VideoData} from '../search-result/videoData';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,8 @@ import IVideo from '../video/video';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output()
+  videoSelected: EventEmitter<VideoData> = new EventEmitter<VideoData>();
   value: string;
   searchResults: IVideo[];
 
@@ -19,5 +22,9 @@ export class HeaderComponent {
       that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
+  }
+
+  onVideoSelect($event: VideoData) {
+    this.videoSelected.emit($event);
   }
 }

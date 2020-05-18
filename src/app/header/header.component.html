@@ -11,11 +11,8 @@
       </div>
   </div>
   <div class="movies-wrapper">
-    <div *ngFor="let movie of searchResults">
-      <a [routerLink]="['/video', movie.id]" class="panel-block is-active">
-        <img class="movies__screenshot" src="../../assets/img/{{movie['thumbnail']}}" alt="Video thumbnail">
-        {{movie.title}}
-      </a>
-    </div>
+    <app-search-result *ngFor="let movie of searchResults"
+                       [iVideo]="movie"
+                       (selectWithTime)="onVideoSelect($event)"></app-search-result>
   </div>
 </nav>

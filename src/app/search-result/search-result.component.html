@@ -1,0 +1,10 @@
+
+<video #video
+       class="movies__screenshot"
+       [volume]="0"
+       [src]="iVideo.url"
+       (mouseover)="play()"
+       (mouseout)="reset()"
+       (click)="onClick(); $event.preventDefault()">
+<p>{{iVideo.title}}</p>
+<p>{{iVideo.description}}</p>
