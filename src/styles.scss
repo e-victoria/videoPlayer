@@ -1,0 +1,65 @@
+/* You can add global styles to this file, and also import other style files */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+.btn {
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 1em;
+  font-family: Roboto, sans-serif;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.popup-close {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 1.2em;
+  right: 1.2em;
+}
+
+.popup-close__cross {
+  font-size: 0;
+
+  &:before,
+  &:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 11px;
+    right: 0;
+    width: 26px;
+    height: 3px;
+    background-color: #333333;
+    transition: all 250ms ease-in;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.popup-close:hover .popup-close__cross:before {
+  transform: rotate(135deg);
+}
+
+.popup-close:hover .popup-close__cross:after {
+  transform: rotate(-135deg);
+}

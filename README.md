@@ -2,8 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
-## JSON Server
-Run `npm run json:server` for a database server
+## Server
+Backend server is located [here](https://github.com/e-victoria/videoPlayer-back) 
 
 ## Development server
 

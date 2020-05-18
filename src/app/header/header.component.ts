@@ -7,7 +7,7 @@ import {VideoData} from '../search-result/videoData';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 
 export class HeaderComponent {
@@ -16,7 +16,6 @@ export class HeaderComponent {
   private showMovieList: ElementRef;
 
   @Output()
-  videoSelected: EventEmitter<VideoData> = new EventEmitter<VideoData>();
   value: string;
   searchResults: IVideo[];
 
@@ -28,10 +27,5 @@ export class HeaderComponent {
       that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
-  }
-
-
-  onVideoSelect($event: VideoData) {
-    this.videoSelected.emit($event);
   }
 }

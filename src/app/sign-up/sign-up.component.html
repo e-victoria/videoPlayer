@@ -1,8 +1,7 @@
-
 <div class="sign-up-wrapper">
   <form class="sign-up__form" [formGroup]="signupForm">
     <button class="btn popup-close" (click)="hidePopup($event)">
-      <span class="popup-closecross">close</span>
+      <span class="popup-close__cross">close</span>
     </button>
     <h3 class="signup__title">Sign Up</h3>
     <label class="signup__label">
@@ -17,6 +16,6 @@
       Password confirmation:
       <input class="input signup__input" type="password" formControlName="passwordConfirmation" required>
     </label>
-    <button class="signup btn" (click)="signUp($event)">Sign Up!</button>
+    <button class="signup__btn btn" (click)="signUp($event)">Sign Up!</button>
   </form>
 </div>
