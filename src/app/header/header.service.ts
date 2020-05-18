@@ -15,19 +15,10 @@ export class HeaderService {
   constructor(private http: HttpClient) {}
 
   getMoviesListByTitle (searchPhrase: string, callback) {
-    this.http.get((`${environment.localHost}movie?q=${searchPhrase}`)).subscribe(
-      (res: IVideo[]) => {
-        callback(res);
+    this.http.get((`${environment.localHost}movies/${searchPhrase}`)).subscribe(
+      (res) => {
+        callback(<IVideo[]>res);
       });
   }
-
-  getAllMovies(callback) {
-    this.http.get((`${environment.localHost}movie`)).subscribe(
-      (res: IVideo[]) => {
-        callback(res);
-      });
-  }
-
-
 
 }

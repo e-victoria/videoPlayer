@@ -4,7 +4,7 @@
         <figure class="image is-16by9">
           <video #video
                  [src]="videoData?.iVideo.url ? videoData.iVideo.url : ''"
-                 [poster]="'../../assets/img/' + videoData?.iVideo.thumbnail"
+                 [poster]="'../../assets/img/' + videoData?.iVideo.video_thumbnail"
                  (click)="playPause()"
                  (loadedmetadata)="video.currentTime = videoData.currentTime;"
                  class="has-ratio"
@@ -23,9 +23,9 @@
           <button class="button is-focused" (click)="playFaster()"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true"></i></button>
         </div>
       <br>
-        <div class="video-title">{{videoData?.iVideo.title}}</div>
+        <div class="video-title">{{videoData?.iVideo.video_title}}</div>
         <br>
-        <article class="media has-text-centered">{{videoData?.iVideo.description}}</article>
+        <article class="media has-text-centered">{{videoData?.iVideo.video_description}}</article>
       </div>
     </div>
   </div>

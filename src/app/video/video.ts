@@ -1,7 +1,7 @@
 export default interface IVideo {
-  id: number,
+  video_id: number,
   url: string,
-  title: string,
-  description: string,
-  thumbnail: string
+  video_title: string,
+  video_description: string,
+  video_thumbnail: string
 }
