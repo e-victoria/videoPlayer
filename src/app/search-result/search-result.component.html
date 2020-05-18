@@ -1,17 +1,13 @@
 <div class="video__wrapper">
-  <ul>
-    <li>
-      <video #video
-             class="video__screenshot"
-             [volume]="0"
-             [src]="iVideo.url"
-             poster= "../../assets/img/{{iVideo.video_thumbnail ? iVideo.video_thumbnail : 'unavailable.png'}} "
-             (mouseover)="play()"
-             (mouseout)="reset()"
-             (click)="onClick(); $event.preventDefault()">
-      </video>
-      <p class="video__description">{{iVideo.video_title}}</p>
-    </li>
-  </ul>
+  <video #video
+         class="video__screenshot"
+         [volume]="0"
+         [src]="iVideo.url"
+         poster= "../../assets/img/{{iVideo.video_thumbnail ? iVideo.video_thumbnail : 'unavailable.png'}}"
+         (mouseover)="play()"
+         (mouseout)="reset()"
+         (click)="onClick(); $event.preventDefault()">
+  </video>
+  <p class="video__title">{{iVideo.video_title}}</p>
 
 </div>

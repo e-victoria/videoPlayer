@@ -53,16 +53,22 @@
 }
 
 .movies__screenshot {
-  width: 15vw;
+  width: 20vw;
   height: 8vw;
   margin-right: 1.5vw;
 }
 
 .movies-wrapper {
-  width: 21vw;
+  width: 28vw;
   position: absolute;
   left: 0;
   top: 2.6em;
+  box-shadow: $shadow;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
+}
+
+.result:not(:last-child) {
+  border-bottom: 0.1em solid $grey-lighter;
 }

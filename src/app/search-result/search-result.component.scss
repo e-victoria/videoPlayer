@@ -1,37 +1,31 @@
+@import '../../assets/scss/variables';
+
 .video__wrapper {
   display: flex;
   align-items: center;
   cursor: pointer;
   background-color: white;
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li{
-    display: flex;
-  }
 }
 
 .video__description {
   padding: 0;
-
 }
 
 .video__screenshot {
-  width: 60%;
+  width: 54%;
   height: auto;
-  margin-right: 1vw;
+  background-color: $grey;
 }
 
-p{
-  display: inline-block;
-  float: right;
-  padding-top: 5px;
-  padding-left: 300px;
-  width: 80%;
+.video__title {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
