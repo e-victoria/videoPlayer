@@ -12,8 +12,8 @@
     <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
     <a class="btn main-nav__profile-btn">Log in</a>
     </div>
-    <div class="movies-wrapper">
-      <app-search-result *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
+    <div *ngIf="searchResults" class="movies-wrapper">
+      <app-search-result class="result" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
     </div>
 
   </nav>
