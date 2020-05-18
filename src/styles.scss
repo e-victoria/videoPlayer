@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+}
+
+.btn {
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 1em;
+  font-family: Roboto, sans-serif;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+}
