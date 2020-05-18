@@ -1,0 +1,17 @@
+.video__wrapper {
+  display: flex;
+  margin-top: 1em;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video__description {
+  padding: 0;
+}
+
+.video__screenshot {
+  width: 60%;
+  height: auto;
+  margin-right: 1vw;
+}
+

@@ -17,7 +17,8 @@ export class SignUpComponent{
   constructor() { }
 
   hidePopup(event) {
-
+    event.preventDefault();
+    window.location.href = '';
   }
 
   signUp(event){

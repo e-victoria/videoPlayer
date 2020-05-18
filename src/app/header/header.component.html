@@ -9,14 +9,13 @@
       </button>
     </div>
     <div class="main-nav__btns">
-    <button class="btn main-nav__profile-btn main-nav__sign-up">Sign up</button>
-    <button class="btn main-nav__profile-btn">Log in</button>
+    <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
+    <a class="btn main-nav__profile-btn">Log in</a>
     </div>
     <div class="movies-wrapper">
-      <app-search-result *ngFor="let movie of searchResults"
-                         [iVideo]="movie"
-                         (selectWithTime)="onVideoSelect($event)"></app-search-result>
+      <app-search-result *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
     </div>
 
   </nav>
 </header>
+<router-outlet></router-outlet>

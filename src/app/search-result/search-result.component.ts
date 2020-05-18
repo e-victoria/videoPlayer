@@ -14,7 +14,6 @@ export class SearchResultComponent {
   selectWithTime: EventEmitter<VideoData> = new EventEmitter<VideoData>();
   @ViewChild('video')
   private videoElement: ElementRef;
-
   play() {
     this.videoElement.nativeElement.play();
   }
