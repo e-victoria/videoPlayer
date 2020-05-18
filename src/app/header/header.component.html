@@ -1,7 +1,8 @@
 <nav class="panel">
   <div class="panel-block">
     <p class="control has-icons-left">
-      <input class="input" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">
+      <label for="name"></label>
+      <input class="input" id="name" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">
       <span class="icon is-left">
         <i class="fas fa-search" aria-hidden="true"></i>
       </span>
@@ -10,16 +11,11 @@
       </div>
   </div>
   <div class="movies-wrapper">
-    <div *ngFor="let movie of valueList">
-      <a [routerLink]="['/video', movie.id]" class="panel-block is-active">
-        <img class="movies__screenshot" src="../../assets/img/{{movie['thumbnail']}}">
-        {{movie.title}}
-      </a>
-    </div>
+    <app-search-result *ngFor="let movie of searchResults"
+                       [iVideo]="movie"
+                       (selectWithTime)="onVideoSelect($event)"></app-search-result>
   </div>
-</nav>
-
-<div #showMovieList class="showMovieList">
+  <div #showMovieList class="showMovieList">
       <div class="showMovieList__item" *ngFor="let movie of videoList">
         <a [routerLink]="['/video', movie.id]" class="showMovieList__link">
           <img class="movies__screenshot" src="../../assets/img/{{movie['thumbnail']}}" (click)="hideHomepage()">
@@ -29,4 +25,4 @@
 </div>
 
 <router-outlet></router-outlet>
-
+</nav>
