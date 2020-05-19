@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import {SignUpService} from "./sign-up.service";
+import ISignUpForm from "./signUpForm";
 
 @Component({
   selector: 'app-sign-up',
@@ -14,14 +16,21 @@ export class SignUpComponent{
     passwordConfirmation: new FormControl(''),
   });
 
-  constructor() { }
+  constructor(private signUpService: SignUpService) { }
 
   hidePopup(event) {
     event.preventDefault();
     window.location.href = '';
   }
 
-  signUp(event){
+  signUp(event) {
 
+    const getResponse = (response) => {
+      alert(response);
+    }
+
+    event.preventDefault();
+    const signUpForm = <ISignUpForm>this.signupForm.value;
+    this.signUpService.sendSignUpForm(signUpForm, getResponse);
   }
 }
