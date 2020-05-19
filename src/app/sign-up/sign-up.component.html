@@ -8,7 +8,7 @@
       Email:
       <input id="email" class="input user-form__input" type="email" formControlName="email" required autofocus ngModel email>
       <div *ngIf="email.invalid && (email.dirty || email.touched)"
-           class="alert alert-danger">
+           class="user-form__message">
       <div *ngIf="email.errors.required">
         Email is required!
       </div>
@@ -18,7 +18,7 @@
       Password:
       <input class="input user-form__input" type="password" formControlName="password" required>
       <div *ngIf="password.invalid"
-           class="alert alert-danger">
+           class="user-form__message">
         <div *ngIf="password.errors.required">
           Password is required!
         </div>
@@ -28,7 +28,7 @@
       Password confirmation:
       <input class="input user-form__input" type="password" formControlName="passwordConfirmation" required>
       <div *ngIf="passwordConfirmation.invalid"
-           class="alert alert-danger">
+           class="user-form__message">
         <div *ngIf="passwordConfirmation.errors.required">
           Password confirmation is required!
         </div>
