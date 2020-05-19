@@ -1,20 +1,21 @@
-<nav class="panel">
-  <div class="panel-block">
-    <p class="control has-icons-left">
-      <label for="name"></label>
-      <input class="input" id="name" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">
-      <span class="icon is-left">
+<header class="page-header">
+  <nav class="main-nav">
+    <div class="main-nav__search nav-search">
+        <label for="name" class="visually-hidden">Search phrase:</label>
+        <input class="nav-search__input" id="name" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">
+      <button class="btn nav-search__btn" (click)="getInput()">
         <i class="fas fa-search" aria-hidden="true"></i>
-      </span>
-      <div class="buttons">
-        <button class="button is-primary" (click)="getInput()">Search</button>
-      </div>
-  </div>
-  <div class="movies-wrapper">
-    <app-search-result *ngFor="let movie of searchResults"
-                       [iVideo]="movie"
-                       (selectWithTime)="onVideoSelect($event)"></app-search-result>
-  </div>
+        <span class="visually-hidden">Search</span>
+      </button>
+    </div>
+    <div class="main-nav__btns">
+    <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
+    <a class="btn main-nav__profile-btn">Log in</a>
+    </div>
+    <div *ngIf="searchResults" class="movies-wrapper">
+      <app-search-result class="result" [routerLink]="['/video', movie.video_id]" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
+    </div>
 
+  </nav>
+</header>
 <router-outlet></router-outlet>
-</nav>
