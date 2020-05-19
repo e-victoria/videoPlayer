@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {VideoData} from '../search-result/videoData';
 
 @Component({
@@ -6,7 +6,7 @@ import {VideoData} from '../search-result/videoData';
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.css']
 })
-export class VideoComponent {
+export class VideoComponent implements OnInit{
   console = console;
   frameTime = 1 / 25;
   @Input()
@@ -37,5 +37,9 @@ export class VideoComponent {
   }
   playSlower(): void{
     this.myVideo.nativeElement.playbackRate = 0.5;
+  }
+
+  ngOnInit(){
+    console.log(this.videoData);
   }
 }

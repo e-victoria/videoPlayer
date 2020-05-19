@@ -6,15 +6,33 @@
     <h3 class="signup__title">Sign Up</h3>
     <label class="signup__label">
       Email:
-      <input class="input signup__input" type="text" formControlName="email" required autofocus>
+      <input id="email" class="input signup__input" type="email" formControlName="email" required autofocus ngModel email>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)"
+           class="alert alert-danger">
+      <div *ngIf="email.errors.required">
+        Email is required!
+      </div>
+      </div>
     </label>
     <label class="signup__label">
       Password:
       <input class="input signup__input" type="password" formControlName="password" required>
+      <div *ngIf="password.invalid"
+           class="alert alert-danger">
+        <div *ngIf="password.errors.required">
+          Password is required!
+        </div>
+      </div>
     </label>
     <label class="signup__label">
       Password confirmation:
       <input class="input signup__input" type="password" formControlName="passwordConfirmation" required>
+      <div *ngIf="passwordConfirmation.invalid"
+           class="alert alert-danger">
+        <div *ngIf="passwordConfirmation.errors.required">
+          Password confirmation is required!
+        </div>
+      </div>
     </label>
     <button class="signup__btn btn" (click)="signUp($event)">Sign Up!</button>
   </form>

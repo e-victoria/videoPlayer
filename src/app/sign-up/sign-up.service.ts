@@ -12,11 +12,13 @@ export class SignUpService {
   constructor(private http: HttpClient) {}
 
   sendSignUpForm(signUpForm: ISignUpForm, callback) {
-    console.log(signUpForm)
+    // console.log(signUpForm)
     this.http.post((`${environment.localHost}signup/new-user`), signUpForm).subscribe(
       (res) => {
         callback(res);
       });
   }
+
+
 
 }

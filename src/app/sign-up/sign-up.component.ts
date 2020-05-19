@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {SignUpService} from "./sign-up.service";
 import ISignUpForm from "./signUpForm";
 
@@ -11,10 +11,26 @@ import ISignUpForm from "./signUpForm";
 export class SignUpComponent{
 
   signupForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    passwordConfirmation: new FormControl(''),
+    'email': new FormControl('', [
+      Validators.required
+    ]),
+    'password': new FormControl('',[
+      Validators.required
+    ]),
+    'passwordConfirmation': new FormControl('', [
+      Validators.required
+    ])
   });
+
+  get email(){
+    return this.signupForm.get('email');
+  }
+  get password(){
+    return this.signupForm.get('password');
+  }
+  get passwordConfirmation(){
+    return this.signupForm.get('passwordConfirmation');
+  }
 
   constructor(private signUpService: SignUpService) { }
 
@@ -24,13 +40,26 @@ export class SignUpComponent{
   }
 
   signUp(event) {
-
     const getResponse = (response) => {
       alert(response);
-    }
+    };
 
     event.preventDefault();
     const signUpForm = <ISignUpForm>this.signupForm.value;
-    this.signUpService.sendSignUpForm(signUpForm, getResponse);
+    if (this.email.status == "VALID") {
+      if (this.password.value !== this.passwordConfirmation.value) {
+        alert('password confirmation invalid');
+      } else {
+        this.signUpService.sendSignUpForm(signUpForm, getResponse);
+      }
+    }
+    else {
+        alert('invalid');
+      }
+    }
+
+  validate(control: AbstractControl): ValidationErrors{
+    return
   }
+
 }
