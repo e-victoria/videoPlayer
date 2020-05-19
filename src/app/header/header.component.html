@@ -10,7 +10,7 @@
     </div>
     <div class="main-nav__btns">
     <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
-    <a class="btn main-nav__profile-btn">Log in</a>
+    <a [routerLink]="['/signin']" class="btn main-nav__profile-btn">Log in</a>
     </div>
     <div *ngIf="searchResults" class="movies-wrapper">
       <app-search-result class="result" [routerLink]="['/video', movie.video_id]" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>

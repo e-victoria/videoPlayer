@@ -1,17 +1,17 @@
 <div class="user-form__wrapper">
-  <form class="user-form__form" [formGroup]="signupForm">
+  <form class="user-form__form" [formGroup]="signinForm">
     <button class="btn popup-close" (click)="hidePopup($event)">
       <span class="popup-close__cross">close</span>
     </button>
-    <h3 class="user-form__title">Sign Up</h3>
+    <h3 class="user-form__title">Sign in</h3>
     <label class="user-form__label">
       Email:
       <input id="email" class="input user-form__input" type="email" formControlName="email" required autofocus ngModel email>
       <div *ngIf="email.invalid && (email.dirty || email.touched)"
            class="alert alert-danger">
-      <div *ngIf="email.errors.required">
-        Email is required!
-      </div>
+        <div *ngIf="email.errors.required">
+          Email is required!
+        </div>
       </div>
     </label>
     <label class="user-form__label">
@@ -24,16 +24,6 @@
         </div>
       </div>
     </label>
-    <label class="user-form__label">
-      Password confirmation:
-      <input class="input user-form__input" type="password" formControlName="passwordConfirmation" required>
-      <div *ngIf="passwordConfirmation.invalid"
-           class="alert alert-danger">
-        <div *ngIf="passwordConfirmation.errors.required">
-          Password confirmation is required!
-        </div>
-      </div>
-    </label>
-    <button class="user-form__btn btn" (click)="signUp($event)">Sign Up!</button>
+    <button class="user-form__btn btn" (click)="signIn($event)">Sign Up!</button>
   </form>
 </div>

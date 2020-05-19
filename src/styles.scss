@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "assets/scss/variables";
+
 .visually-hidden {
   position: absolute;
   clip: rect(0 0 0 0);
@@ -62,4 +64,60 @@ body {
 
 .popup-close:hover .popup-close__cross:after {
   transform: rotate(-135deg);
+}
+
+.user-form__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 254, 0.8);
+}
+
+.user-form__form {
+  margin-top: 6em;
+  width: 50%;
+  padding: 4em 4.3vw;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: $shadow;
+}
+
+.user-form__title {
+  align-self: center;
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+.user-form__label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2em;
+  font-size: 1.2em;
+}
+
+.user-form__input {
+  margin-top: 0.4em;
+  padding: 0.2em 0.6em;
+  font-size: 1em;
+}
+
+.user-form__btn {
+  margin-top: 2em;
+  border: 0.09em solid $green;
+
+  &:hover {
+    box-shadow: 0 0 0.11em $green-darker;
+  }
 }
