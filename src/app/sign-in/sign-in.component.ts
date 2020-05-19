@@ -38,9 +38,11 @@ export class SignInComponent{
 
   signIn(event) {
     const getResponse = (response) => {
-      alert(`Welcome, ${response['user_id']}`);
       if (response) {
+        alert(`Welcome, ${response['user_id']}`);
         window.location.href = '';
+      } else {
+        alert('Invalid login data')
       }
     };
 
