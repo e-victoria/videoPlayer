@@ -58,8 +58,4 @@ export class SignUpComponent{
       }
     }
 
-  validate(control: AbstractControl): ValidationErrors{
-    return
-  }
-
 }
