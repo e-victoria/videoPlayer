@@ -12,7 +12,6 @@ export class SignInService {
   constructor(private http: HttpClient) {}
 
   sendSignUpForm(signUpForm: ISignInForm, callback) {
-    // console.log(signUpForm)
     this.http.post((`${environment.localHost}signin`), signUpForm).subscribe(
       (res) => {
         callback(res);

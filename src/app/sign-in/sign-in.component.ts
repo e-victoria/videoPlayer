@@ -38,7 +38,10 @@ export class SignInComponent{
 
   signIn(event) {
     const getResponse = (response) => {
-      alert(response);
+      alert(`Welcome, ${response['user_id']}`);
+      if (response) {
+        window.location.href = '';
+      }
     };
 
     event.preventDefault();
