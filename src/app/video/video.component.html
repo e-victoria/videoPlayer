@@ -1,32 +1,24 @@
-<div class="container">
-  <div class="columns">
-    <div class="column is-12 box has-text-centered">
-        <figure class="image is-16by9">
-          <video #video
-                 [src]="videoData?.iVideo.url ? videoData.iVideo.url : ''"
-                 [poster]="'../../assets/img/' + videoData?.iVideo.video_thumbnail"
-                 (click)="playPause()"
-                 (loadedmetadata)="video.currentTime = videoData.currentTime;"
-                 class="has-ratio"
-                 width="640"
-                 height="360"
-                 id="video"
-                 frameborder="0"
-                 allowfullscreen>
-          </video>
-        </figure>
-        <div *ngIf="videoData?.iVideo.url" class="btn-wrapper box is-centered buttons are-small">
-          <button class="button is-focused" (click)="playSlower()"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true"></i></button>
-          <button class="button is-info is-focused" (click)="playBackward()"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true"></i></button>
-          <button class="button is-primary is-focused" (click)="playPause()"><i class="fas fa-play" id="playIcon" aria-hidden="true"></i></button>
-          <button class="button is-info is-focused" (click)="playForward()"><i class="fas fa-forward" id="forwardIcon" aria-hidden="true"></i></button>
-          <button class="button is-focused" (click)="playFaster()"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true"></i></button>
-        </div>
-      <br>
-        <div class="video-title">{{videoData?.iVideo.video_title}}</div>
-        <br>
-        <article class="media has-text-centered">{{videoData?.iVideo.video_description}}</article>
-      </div>
+<section class="video-page">
+  <h2 class="visually-hidden">{{movie?.video_title}}</h2>
+  <div class="video__wrapper">
+    <video #video
+            [src]="movie?.url ? movie.url : ''"
+            [poster]="'../../assets/img/' + movie?.video_thumbnail"
+            (click)="playPause()"
+            class="has-ratio"
+            id="video"
+            frameborder="0"
+            allowfullscreen>
+    </video>
+    <div *ngIf="movie?.url" class="video__btns">
+      <button class="btn video__control-btn" (click)="playSlower()"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true"></i></button>
+      <button class="btn video__control-btn" (click)="playBackward()"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true"></i></button>
+      <button class="btn video__control-btn" (click)="playPause()"><i class="fas fa-play" id="playIcon" aria-hidden="true"></i></button>
+      <button class="btn video__control-btn" (click)="playForward()"><i class="fas fa-forward" id="forwardIcon" aria-hidden="true"></i></button>
+      <button class="btn video__control-btn" (click)="playFaster()"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true"></i></button>
     </div>
   </div>
+  <p class="video-page__title">{{movie?.video_title}}</p>
+  <p class="video-page__description">{{movie?.video_description}}</p>
+</section>
 

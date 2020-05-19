@@ -1,0 +1,75 @@
+@import "../../assets/scss/variables";
+
+.video-page {
+  padding: 1.6em 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $bg-color;
+}
+
+.video__wrapper {
+  position: relative;
+  width: 60%;
+}
+
+#video {
+  width: 100%;
+  margin-bottom: 0.6em;
+}
+
+.video__btns {
+  position: absolute;
+  left: 0%;
+  padding: 0.05em 0;
+  bottom: 1%;
+  width: 100%;
+  height: 2.8em;
+  display: grid;
+  grid-auto-flow: column;
+  background-color: transparent;
+  gap: 0 1em;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+
+  & .video__control-btn {
+    display: none;
+  }
+
+  &:hover {
+    background-color: rgba(101, 105, 102, 0.4);
+  }
+
+  &:hover .video__control-btn {
+    display: inline-block;
+  }
+}
+
+.video__control-btn {
+  display: inline-block;
+  background-color: transparent;
+  outline: none;
+
+  &:focus {
+    border: 0.1em solid $green;
+  }
+
+  & i {
+    font-size: 1em;
+    color: #ffffff;
+  }
+}
+
+.video-page__title {
+  padding: 0;
+  margin: 0.6em 0;
+  font-size: 1.2em;
+}
+
+.video-page__description {
+  padding: 0;
+  width: 45%;
+  font-size: 1em;
+  text-align: center;
+}

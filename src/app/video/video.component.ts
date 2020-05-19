@@ -1,21 +1,37 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {VideoData} from '../search-result/videoData';
+import {Router} from "@angular/router";
+import IVideo from "./video";
+import {VideoService} from "./video.service";
 
 @Component({
   selector: 'app-video',
   templateUrl: './video.component.html',
-  styleUrls: ['./video.component.css']
+  styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit{
-  console = console;
+  movie: IVideo;
   frameTime = 1 / 25;
-  @Input()
-  videoData: VideoData;
   @ViewChild('video')
   private myVideo: ElementRef;
 
+  constructor(private router: Router, private videoService: VideoService) {}
+
+  ngOnInit() {
+
+    const that = this;
+    const videoId = this.router.url.split('/').pop();
+
+    const getVideo = (video: IVideo) => {
+      that.movie = video;
+    }
+
+    this.videoService.getMovieByID(videoId, getVideo);
+
+  }
+
   playPause(): void{
-    if (this.videoData?.iVideo.url) {
+    if (this.movie?.url) {
       if (this.myVideo.nativeElement.paused) {
         this.myVideo.nativeElement.play();
       } else {
@@ -39,7 +55,4 @@ export class VideoComponent implements OnInit{
     this.myVideo.nativeElement.playbackRate = 0.5;
   }
 
-  ngOnInit(){
-    console.log(this.videoData);
-  }
 }
