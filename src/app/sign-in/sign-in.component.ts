@@ -12,6 +12,8 @@ export class SignInComponent{
 
   @ViewChild('loginError')
   private loginError: ElementRef;
+  @ViewChild('loginSuccess')
+  private loginSuccess: ElementRef;
 
   signinForm = new FormGroup({
     'email': new FormControl('', [
@@ -42,8 +44,11 @@ export class SignInComponent{
   signIn(event) {
     const getResponse = (response) => {
       if (response) {
-        alert(`Welcome, ${response['user_id']}`);
-        window.location.href = '';
+        this.loginSuccess.nativeElement.classList.add('show');
+        window.setTimeout(() => {
+          window.location.href = '';
+        }, 1000)
+
       } else {
         this.loginError.nativeElement.classList.add('show');
       }
