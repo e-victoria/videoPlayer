@@ -44,6 +44,9 @@ export class SignInComponent{
   signIn(event) {
     const getResponse = (response) => {
       if (response) {
+        if (response['user_id']){
+          localStorage.setItem('token', response['user_id']);
+        }
         this.loginSuccess.nativeElement.classList.add('show');
         window.setTimeout(() => {
           window.location.href = '';
