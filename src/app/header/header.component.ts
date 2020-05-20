@@ -1,5 +1,4 @@
-
-import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import { HeaderService } from './header.service';
 import IVideo from '../video/video';
 import {VideoData} from '../search-result/videoData';
@@ -10,10 +9,10 @@ import {VideoData} from '../search-result/videoData';
   styleUrls: ['./header.component.scss']
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
 
-  @ViewChild('showMovieList')
-  private showMovieList: ElementRef;
+  @ViewChild('loginBtn')
+  private loginBtn: ElementRef;
 
   @Output()
   videoSelected: EventEmitter<VideoData> = new EventEmitter<VideoData>();
@@ -22,15 +21,18 @@ export class HeaderComponent {
 
   constructor(private headerService: HeaderService) { }
 
+  ngAfterViewInit(): void {
+    if (localStorage.getItem('token')) {
+      this.loginBtn.nativeElement.textContent = 'Log out';
+    }
+  }
+
   getInput() {
+    console.log(this.loginBtn);
     const that = this;
     function getData(data) {
       that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
-  }
-
-  onVideoSelect($event: VideoData) {
-    this.videoSelected.emit($event);
   }
 }

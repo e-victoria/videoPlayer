@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {SignInService} from "./sign-in.service";
 import ISignInForm from "./signInForm";
@@ -8,12 +8,14 @@ import ISignInForm from "./signInForm";
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class SignInComponent{
+export class SignInComponent implements AfterViewInit {
 
   @ViewChild('loginError')
   private loginError: ElementRef;
   @ViewChild('loginSuccess')
   private loginSuccess: ElementRef;
+  @ViewChild('loginForm')
+  private loginForm: ElementRef;
 
   signinForm = new FormGroup({
     'email': new FormControl('', [
@@ -29,6 +31,14 @@ export class SignInComponent{
 
   constructor(private signInService: SignInService) { }
 
+  ngAfterViewInit(): void {
+    if (localStorage.getItem('token')) {
+      this.loginForm.nativeElement.style.display = 'none';
+      localStorage.removeItem('token');
+      window.location.href = '';
+    }
+  }
+
   get email(){
     return this.signinForm.get('email');
   }
@@ -42,6 +52,7 @@ export class SignInComponent{
   }
 
   signIn(event) {
+
     const getResponse = (response) => {
       if (response) {
         if (response['user_id']){
@@ -58,11 +69,11 @@ export class SignInComponent{
     };
 
     event.preventDefault();
+
     const signInForm = <ISignInForm>this.signinForm.value;
     if (this.email.status == "VALID") {
       this.signInService.sendSignUpForm(signInForm, getResponse);
-    }
-    else {
+    } else {
       alert('invalid');
     }
   }

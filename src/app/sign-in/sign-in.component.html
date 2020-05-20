@@ -1,5 +1,5 @@
 <div class="user-form__wrapper">
-  <form class="user-form__form" [formGroup]="signinForm">
+  <form #loginForm class="user-form__form" [formGroup]="signinForm">
     <button class="btn popup-close" (click)="hidePopup($event)">
       <span class="popup-close__cross">close</span>
     </button>
