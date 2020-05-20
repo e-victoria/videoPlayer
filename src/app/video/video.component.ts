@@ -14,6 +14,8 @@ export class VideoComponent implements OnInit{
   frameTime = 1 / 25;
   @ViewChild('video')
   private myVideo: ElementRef;
+  @ViewChild('playPauseBtn')
+  private playPauseBtn: ElementRef;
 
   constructor(private router: Router, private videoService: VideoService) {}
 
@@ -24,9 +26,13 @@ export class VideoComponent implements OnInit{
 
     const getVideo = (video: IVideo) => {
       that.movie = video;
-    }
+    };
 
     this.videoService.getMovieByID(videoId, getVideo);
+
+    if (!this.movie?.url){
+      this.myVideo?.nativeElement.setAttribute('poster', '../../assets/img/unavailable.png')
+    }
 
   }
 
@@ -34,8 +40,12 @@ export class VideoComponent implements OnInit{
     if (this.movie?.url) {
       if (this.myVideo.nativeElement.paused) {
         this.myVideo.nativeElement.play();
+        this.playPauseBtn.nativeElement.classList.remove('fa-play');
+        this.playPauseBtn.nativeElement.classList.add('fa-pause');
       } else {
         this.myVideo.nativeElement.pause();
+        this.playPauseBtn.nativeElement.classList.remove('fa-pause');
+        this.playPauseBtn.nativeElement.classList.add('fa-play');
       }
     }
   }
