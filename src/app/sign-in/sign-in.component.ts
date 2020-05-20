@@ -45,7 +45,7 @@ export class SignInComponent{
         alert(`Welcome, ${response['user_id']}`);
         window.location.href = '';
       } else {
-        this.loginError.nativeElement.classList.add('show')
+        this.loginError.nativeElement.classList.add('show');
       }
     };
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {SignUpService} from "./sign-up.service";
 import ISignUpForm from "./signUpForm";
@@ -10,6 +10,8 @@ import ISignUpForm from "./signUpForm";
 })
 export class SignUpComponent{
 
+  @ViewChild('loginError')
+  private loginError: ElementRef;
   signupForm = new FormGroup({
     'email': new FormControl('', [
       Validators.required
@@ -41,7 +43,12 @@ export class SignUpComponent{
 
   signUp(event) {
     const getResponse = (response) => {
-      alert(response);
+      if (response === 'ok') {
+        alert(response);
+      }
+      else {
+        this.loginError.nativeElement.classList.add('show');
+      }
     };
 
     event.preventDefault();
