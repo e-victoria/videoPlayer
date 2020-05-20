@@ -4,6 +4,7 @@
       <span class="popup-close__cross">close</span>
     </button>
     <h3 class="user-form__title">Sign Up</h3>
+    <p class="user-form__message user-form__message--invalid-login" #loginError>This user is already exists!</p>
     <label class="user-form__label">
       Email:
       <input id="email" class="input user-form__input" type="email" formControlName="email" required autofocus ngModel email>
