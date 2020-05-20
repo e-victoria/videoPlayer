@@ -3,14 +3,14 @@
     <div class="main-nav__search nav-search">
         <label for="name" class="visually-hidden">Search phrase:</label>
         <input class="nav-search__input" id="name" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">
-      <button class="btn nav-search__btn" (click)="getInput()">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        <span class="visually-hidden">Search</span>
-      </button>
+        <button class="btn nav-search__btn" (click)="getInput()">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <span class="visually-hidden">Search</span>
+        </button>
     </div>
     <div class="main-nav__btns">
-    <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
-    <a [routerLink]="['/signin']" class="btn main-nav__profile-btn">Log in</a>
+      <a [routerLink]="['/signup']" class="btn main-nav__profile-btn main-nav__sign-up">Sign up</a>
+      <a [routerLink]="['/signin']" class="btn main-nav__profile-btn" #loginBtn>Log in</a>
     </div>
     <div *ngIf="searchResults" class="movies-wrapper">
       <app-search-result class="result" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>

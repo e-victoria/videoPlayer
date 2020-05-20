@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class UserGuard implements CanActivate {
 
-  //constructor
-
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
