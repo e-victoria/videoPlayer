@@ -1,12 +1,11 @@
-<div class="video__wrapper">
+<div class="video__wrapper" [routerLink]="['/video', iVideo.video_id]">
   <video #video
          class="video__screenshot"
          [volume]="0"
          [src]="iVideo.url"
          poster= "../../assets/img/{{iVideo.video_thumbnail ? iVideo.video_thumbnail : 'unavailable.png'}}"
          (mouseover)="play()"
-         (mouseout)="reset()"
-         (click)="onClick(); $event.preventDefault()">
+         (mouseout)="reset()">
   </video>
   <p class="video__title">{{iVideo.video_title}}</p>
 

@@ -16,6 +16,7 @@ export class HeaderComponent {
   private showMovieList: ElementRef;
 
   @Output()
+  videoSelected: EventEmitter<VideoData> = new EventEmitter<VideoData>();
   value: string;
   searchResults: IVideo[];
 
@@ -27,5 +28,9 @@ export class HeaderComponent {
       that.searchResults = data;
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
+  }
+
+  onVideoSelect($event: VideoData) {
+    this.videoSelected.emit($event);
   }
 }

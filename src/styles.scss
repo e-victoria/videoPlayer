@@ -121,3 +121,19 @@ body {
     box-shadow: 0 0 0.11em $green-darker;
   }
 }
+
+.user-form__message{
+  font-size: 0.7em;
+  color: $red;
+}
+
+.user-form__message--invalid-login{
+  align-self: center;
+  font-size: 0.9em;
+  margin-bottom: 2em;
+  display: none;
+}
+
+.show{
+  display: inline-block;
+}

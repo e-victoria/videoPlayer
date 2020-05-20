@@ -13,7 +13,7 @@
     <a [routerLink]="['/signin']" class="btn main-nav__profile-btn">Log in</a>
     </div>
     <div *ngIf="searchResults" class="movies-wrapper">
-      <app-search-result class="result" [routerLink]="['/video', movie.video_id]" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
+      <app-search-result class="result" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
     </div>
 
   </nav>

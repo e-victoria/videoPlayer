@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {SignInService} from "./sign-in.service";
 import ISignInForm from "./signInForm";
@@ -9,6 +9,9 @@ import ISignInForm from "./signInForm";
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent{
+
+  @ViewChild('loginError')
+  private loginError: ElementRef;
 
   signinForm = new FormGroup({
     'email': new FormControl('', [
@@ -42,7 +45,7 @@ export class SignInComponent{
         alert(`Welcome, ${response['user_id']}`);
         window.location.href = '';
       } else {
-        alert('Invalid login data')
+        this.loginError.nativeElement.classList.add('show')
       }
     };
 

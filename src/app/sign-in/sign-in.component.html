@@ -4,11 +4,12 @@
       <span class="popup-close__cross">close</span>
     </button>
     <h3 class="user-form__title">Sign in</h3>
+    <p class="user-form__message user-form__message--invalid-login" #loginError>Invalid login password</p>
     <label class="user-form__label">
       Email:
       <input id="email" class="input user-form__input" type="email" formControlName="email" required autofocus ngModel email>
       <div *ngIf="email.invalid && (email.dirty || email.touched)"
-           class="alert alert-danger">
+           class="user-form__message">
         <div *ngIf="email.errors.required">
           Email is required!
         </div>
@@ -18,7 +19,7 @@
       Password:
       <input class="input user-form__input" type="password" formControlName="password" required>
       <div *ngIf="password.invalid"
-           class="alert alert-danger">
+           class="user-form__message">
         <div *ngIf="password.errors.required">
           Password is required!
         </div>
