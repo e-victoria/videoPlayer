@@ -127,12 +127,17 @@ body {
   color: $red;
 }
 
-.user-form__message--invalid-login{
+.user-form__message--invalid-login,
+.user-form__message--success-login{
   align-self: center;
   font-size: 1.1em;
   margin: 0;
   margin-bottom: 1.6em;
   display: none;
+}
+
+.user-form__message--success-login{
+  color: $green;
 }
 
 .show{

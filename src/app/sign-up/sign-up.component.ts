@@ -12,6 +12,9 @@ export class SignUpComponent{
 
   @ViewChild('loginError')
   private loginError: ElementRef;
+  @ViewChild('signupSuccess')
+  private signupSuccess: ElementRef;
+
   signupForm = new FormGroup({
     'email': new FormControl('', [
       Validators.required
@@ -44,7 +47,10 @@ export class SignUpComponent{
   signUp(event) {
     const getResponse = (response) => {
       if (response === 'ok') {
-        alert(response);
+        this.signupSuccess.nativeElement.classList.add('show');
+        window.setTimeout(() => {
+          window.location.href = '';
+        }, 1000)
       }
       else {
         this.loginError.nativeElement.classList.add('show');
@@ -55,7 +61,8 @@ export class SignUpComponent{
     const signUpForm = <ISignUpForm>this.signupForm.value;
     if (this.email.status == "VALID") {
       if (this.password.value !== this.passwordConfirmation.value) {
-        alert('password confirmation invalid');
+        this.loginError.nativeElement.classList.add('show');
+        this.loginError.nativeElement.textContent = 'Passwords do not match!';
       } else {
         this.signUpService.sendSignUpForm(signUpForm, getResponse);
       }
