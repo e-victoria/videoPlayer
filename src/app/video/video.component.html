@@ -3,7 +3,7 @@
   <div class="video__wrapper">
     <video #video
             [src]="movie?.url ? movie.url : ''"
-            [poster]="'../../assets/img/' + movie?.video_thumbnail"
+            poster="../../assets/img/{{movie?.video_thumbnail ? movie.video_thumbnail : 'unavailable.png'}}"
             (click)="playPause()"
             class="has-ratio"
             id="video"
@@ -13,7 +13,7 @@
     <div *ngIf="movie?.url" class="video__btns">
       <button class="btn video__control-btn" (click)="playSlower()"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true"></i></button>
       <button class="btn video__control-btn" (click)="playBackward()"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true"></i></button>
-      <button class="btn video__control-btn" (click)="playPause()"><i class="fas fa-play" id="playIcon" aria-hidden="true"></i></button>
+      <button class="btn video__control-btn" (click)="playPause()"><i class="fas fa-play" id="playIcon" aria-hidden="true" #playPauseBtn></i></button>
       <button class="btn video__control-btn" (click)="playForward()"><i class="fas fa-forward" id="forwardIcon" aria-hidden="true"></i></button>
       <button class="btn video__control-btn" (click)="playFaster()"><i class="fas fa-fast-forward" id="playFaster" aria-hidden="true"></i></button>
     </div>
