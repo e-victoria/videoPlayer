@@ -24,18 +24,15 @@ export class HomeComponent implements OnInit {
       for (let video of that.videoList) {
           let ref;
           if (video.video_thumbnail.split('.').length === 1  && video.video_thumbnail) {
-            console.log(video.video_thumbnail)
             ref = that.storage.ref(video.video_thumbnail + '.png');
           } else if (!video.video_thumbnail) {
             ref = that.storage.ref('unavailable.png');
           } else {
-            console.log(video.video_thumbnail)
             ref = that.storage.ref(video.video_thumbnail);
           }
           that.profileUrl = ref.getDownloadURL();
           that.profileUrl.subscribe(
             (res) => {
-              console.log('d')
               video.video_thumbnail = res;
             });
       }

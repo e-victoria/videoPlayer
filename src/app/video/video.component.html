@@ -2,8 +2,8 @@
   <h2 class="visually-hidden">{{movie?.video_title}}</h2>
   <div class="video__wrapper">
     <video #video
-            src= "{{movie?.url ? movie.url : ''}}"
-            poster="{{movie?.video_thumbnail ? movie.video_thumbnail : 'unavailable.png'}}"
+            src= "{{movie?.url ? movie?.url : ''}}"
+            poster="{{movie?.video_thumbnail}}"
             (click)="playPause()"
             class="has-ratio"
             id="video"
@@ -11,8 +11,8 @@
             frameborder="0"
             allowfullscreen>
     </video>
-    <iframe #iframe src=""></iframe>
-    <div *ngIf="movie?.url" class="video__btns">
+    <iframe frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="560" height="315" class="iframe" #iframe src="https://www.youtube.com/embed/99WKhEcmyk4"></iframe>
+    <div *ngIf="movie?.url" #controls class="video__btns">
       <button class="btn video__control-btn" (click)="playSlower()"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true"></i></button>
       <button class="btn video__control-btn" (click)="playBackward()"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true"></i></button>
       <button class="btn video__control-btn" (click)="playPause()"><i class="fas fa-play" id="playIcon" aria-hidden="true" #playPauseBtn></i></button>

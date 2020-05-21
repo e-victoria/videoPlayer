@@ -12,8 +12,10 @@ import {AngularFireStorage} from "@angular/fire/storage";
 export class VideoComponent implements OnInit{
   movie: IVideo;
   frameTime = 1 / 25;
-  @ViewChild('#iframe')
-  iframe;
+  @ViewChild('iframe')
+  private iframe: ElementRef;
+  @ViewChild('controls')
+  private controls: ElementRef;
   @ViewChild('video')
   private myVideo: ElementRef;
   @ViewChild('playPauseBtn')
@@ -44,12 +46,11 @@ export class VideoComponent implements OnInit{
             that.movie.video_thumbnail = res;
           });
         that.movie.video_thumbnail = '';
-
-        if (this.movie.url.split(':')[0] === 'blob') {
-          const newUrl = this.movie.url.split(':').slice(1, -1);
-          newUrl.join();
-          this.myVideo.nativeElement.style.display = 'none';
-          this.iframe.nativeElement.src = newUrl;
+        if (this.movie.url.split('.').pop() !== 'mp4') {
+          console.log(this.movie.url.split('.'));
+          that.myVideo.nativeElement.style.display = 'none';
+          that.iframe.nativeElement.classList.add('show');
+          that.controls.nativeElement.style.display = 'none';
         }
     };
 

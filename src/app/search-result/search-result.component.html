@@ -3,7 +3,7 @@
          class="video__screenshot"
          [volume]="0"
          [src]="iVideo.url"
-         poster= "../../assets/img/{{iVideo.video_thumbnail ? iVideo.video_thumbnail : 'unavailable.png'}}"
+         poster= "{{iVideo.video_thumbnail}}"
          (mouseover)="play()"
          (mouseout)="reset()">
   </video>
