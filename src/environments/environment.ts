@@ -2,20 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import {AngularFireModule} from "@angular/fire";
-
 export const environment = {
   production: false,
   localHost: "http://localhost:3000/",
-  firebaseConfig: {
+  firebase: {
     apiKey: "AIzaSyCowmHNKNdpkJvDctmmUR4-msNPxPg8KlM",
     authDomain: "video-player-6472d.firebaseapp.com",
     databaseURL: "https://video-player-6472d.firebaseio.com/",
     projectId: "video-player-6472d",
     storageBucket: "video-player-6472d.appspot.com",
-    messagingSenderId: "902746048910",
-    appId: "1:902746048910:web:84ea8c7ff415db0d0e7cdf",
-    measurementId: "G-W1833C5PFK"
+    messagingSenderId: "902746048910"
   }
 };
 

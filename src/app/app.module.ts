@@ -13,6 +13,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {TokenInterceptor} from "./token.interceptor";
 import { UploadVideoComponent } from './upload-video/upload-video.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import {AngularFireStorageModule} from "@angular/fire/storage";
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { UploadVideoComponent } from './upload-video/upload-video.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   providers: [
     {

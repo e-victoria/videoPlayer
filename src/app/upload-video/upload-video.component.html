@@ -1,6 +1,6 @@
 <section class="upload-video">
   <h2 class="section-title">Upload a new video</h2>
-  <form class="upload-video__form" [formGroup]="newVideoForm" #uploadForm>
+  <form class="upload-video__form" [formGroup]="newVideoForm">
     <label for="newVideoTitle" class="upload-video__label">Title:</label>
     <input id="newVideoTitle" class="upload-video__input" type="text" formControlName="video_title">
     <label for="newVideoDescription" class="upload-video__label">Description:</label>
@@ -19,6 +19,8 @@
 
     <input formControlName="video_thumbnail" id="newVideoThumbnail" class="upload-video__input upload-video__fileinput" type="file" accept="image/*">
     <button class="btn upload-video__btn" type="submit" (click)="uploadVideo()">Upload</button>
+    <input (change)="uploadImg($event)" formControlName="video_thumbnail" id="newVideoThumbnail" class="upload-video__input upload-video__fileinput" type="file" accept="image/*">
+    <button (click)="saveVideo($event)" class="btn upload-video__btn" type="submit">Upload</button>
   </form>
 </section>
 <router-outlet></router-outlet>
