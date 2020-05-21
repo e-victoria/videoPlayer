@@ -1,0 +1,15 @@
+<section class="upload-video">
+  <h2 class="section-title">Upload a new video</h2>
+  <form class="upload-video__form" [formGroup]="newVideoForm">
+    <label for="newVideoTitle" class="upload-video__label">Title:</label>
+    <input id="newVideoTitle" class="upload-video__input" type="text" formControlName="video_title">
+    <label for="newVideoDescription" class="upload-video__label">Description:</label>
+    <textarea id="newVideoDescription" class="upload-video__input" cols="4" formControlName="video_description"></textarea>
+    <label for="newVideoUrl" class="upload-video__label">Url:</label>
+    <input id="newVideoUrl" class="upload-video__input" type="text" formControlName="url">
+    <label for="newVideoThumbnail" class="upload-video__label upload-video__filelabel">Thumbnail:</label>
+    <input formControlName="video_thumbnail" id="newVideoThumbnail" class="upload-video__input upload-video__fileinput" type="file" accept="image/*">
+    <button class="btn upload-video__btn" type="submit" (click)="uploadVideo($event)">Upload</button>
+  </form>
+</section>
+<router-outlet></router-outlet>
