@@ -2,14 +2,16 @@
   <h2 class="visually-hidden">{{movie?.video_title}}</h2>
   <div class="video__wrapper">
     <video #video
-            [src]="movie?.url ? movie.url : ''"
-            poster="../../assets/img/{{movie?.video_thumbnail ? movie.video_thumbnail : 'unavailable.png'}}"
+            src= "{{movie?.url ? movie.url : ''}}"
+            poster="{{movie?.video_thumbnail ? movie.video_thumbnail : 'unavailable.png'}}"
             (click)="playPause()"
             class="has-ratio"
             id="video"
+           type="video/mp4"
             frameborder="0"
             allowfullscreen>
     </video>
+    <iframe #iframe src=""></iframe>
     <div *ngIf="movie?.url" class="video__btns">
       <button class="btn video__control-btn" (click)="playSlower()"><i class="fas fa-fast-backward" id="playSlower" aria-hidden="true"></i></button>
       <button class="btn video__control-btn" (click)="playBackward()"><i class="fas fa-backward" id="backwardIcon" aria-hidden="true"></i></button>

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signup', component: SignUpComponent},
   { path: 'signin', component: SignInComponent},
-  { path: 'new-video', component: UploadVideoComponent }
+  { path: 'new-video', component: UploadVideoComponent, canActivate: [UserGuard] }
 ];
 
 @NgModule({
