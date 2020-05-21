@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import IVideo from "./video";
 import {VideoService} from "./video.service";
@@ -9,7 +9,7 @@ import {AngularFireStorage} from "@angular/fire/storage";
   templateUrl: './video.component.html',
   styleUrls: ['./video.component.scss']
 })
-export class VideoComponent implements OnInit{
+export class VideoComponent implements OnInit {
   movie: IVideo;
   frameTime = 1 / 25;
   @ViewChild('iframe')
@@ -46,11 +46,7 @@ export class VideoComponent implements OnInit{
             that.movie.video_thumbnail = res;
           });
         that.movie.video_thumbnail = '';
-        if (this.movie.url.split('.').pop() !== 'mp4') {
-          that.myVideo.nativeElement.style.display = 'none';
-          that.iframe.nativeElement.classList.add('show');
-          that.controls ? that.controls.nativeElement.style.display = 'none' : '';
-        }
+        that.changeVideoPlayer();
     };
 
     this.videoService.getMovieByID(videoId, getVideo);
@@ -60,6 +56,16 @@ export class VideoComponent implements OnInit{
     }
   }
 
+  changeVideoPlayer() {
+    if (this.movie && this.movie.url.split('.').pop() !== 'mp4') {
+      console.log(this.myVideo);
+      this.myVideo.nativeElement.style.display = 'none';
+      this.iframe.nativeElement.classList.add('show');
+      console.log(this.myVideo.nativeElement);
+      this.controls ? this.controls.nativeElement.style.display = 'none' : '';
+      this.iframe.nativeElement.setAttribute('src', this.movie.url);
+    }
+  }
 
   playPause(): void{
     if (this.movie?.url) {

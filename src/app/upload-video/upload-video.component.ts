@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import IVideo from "../video/video";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {Observable} from "rxjs";
 import {finalize} from "rxjs/operators";
@@ -65,20 +64,25 @@ export class UploadVideoComponent {
     }
     const getResponse = (response) => {
       console.log(response);
+      if (response === 'ok') {
+        window.setTimeout(() => {
+          window.location.href = '';
+        }, 1000);
+      }
     };
 
     this.uploadVideoService.uploadVideo(this.newVideoForm.value, getResponse);
   }
-  onImagePicked(event: Event){
-    console.log('test1');
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({image: file});
-    this.form.get('image').updateValueAndValidity();
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = reader.result as string;
-    };
-    reader.readAsDataURL(file);
-  }
+  // onImagePicked(event: Event){
+  //   console.log('test1');
+  //   const file = (event.target as HTMLInputElement).files[0];
+  //   this.form.patchValue({image: file});
+  //   this.form.get('image').updateValueAndValidity();
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     this.imagePreview = reader.result as string;
+  //   };
+  //   reader.readAsDataURL(file);
+  // }
 
 }
