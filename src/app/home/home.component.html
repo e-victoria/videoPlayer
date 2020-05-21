@@ -1,7 +1,7 @@
 <div class="showMovieList">
   <div class="showMovieList__item" *ngFor="let movie of videoList">
     <a [routerLink]="['/video', movie.video_id]" class="showMovieList__link">
-      <img class="movies__screenshot" src="../../assets/img/{{movie.video_thumbnail ? movie.video_thumbnail : 'unavailable.png'}}">
+      <img class="movies__screenshot" src="{{movie.video_thumbnail}}">
     </a>
     <p class="title is-4">{{movie.video_title}}</p>
   </div>

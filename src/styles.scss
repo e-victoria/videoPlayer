@@ -12,6 +12,7 @@
 body {
   margin: 0;
   font-size: 16px;
+  font-family: 'Lato', sans-serif;
 }
 
 .btn {
@@ -140,6 +141,12 @@ body {
   color: $green;
 }
 
-.show{
-  display: inline-block;
+.show {
+  display: inline-block !important;
+}
+
+.section-title {
+  margin: 0;
+  margin-bottom: 1.5em;
+  font-size: 1.3em;
 }
