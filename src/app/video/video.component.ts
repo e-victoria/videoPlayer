@@ -59,13 +59,13 @@ export class VideoComponent implements OnInit{
     if (!this.movie?.url){
       this.myVideo?.nativeElement.setAttribute('poster', '../../assets/img/unavailable.png')
     }
-
   }
+
 
   playPause(): void{
     if (this.movie?.url) {
       if (this.myVideo.nativeElement.paused) {
-        console.log(this.myVideo.nativeElement)
+        console.log(this.myVideo.nativeElement);
         this.myVideo.nativeElement.play();
         this.playPauseBtn.nativeElement.classList.remove('fa-play');
         this.playPauseBtn.nativeElement.classList.add('fa-pause');

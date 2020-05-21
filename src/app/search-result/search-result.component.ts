@@ -43,4 +43,5 @@ export class SearchResultComponent implements OnInit{
     this.videoElement.nativeElement.currentTime = 0;
   }
 
+
 }

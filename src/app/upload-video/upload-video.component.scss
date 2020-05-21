@@ -44,3 +44,36 @@
     box-shadow: 0 0 0.09em $green-darker;
   }
 }
+
+
+textarea{
+  width: 100%;
+}
+
+input[type="file"]{
+  visibility: hidden;
+}
+
+.image-preview{
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+}
+
+#button__pick-image{
+  width: 170px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 0.6em;
+  color: white;
+  font-size: 0.9em;
+  letter-spacing: 0.04em;
+  background-color: $grey-lighter;
+
+  &:hover {
+    box-shadow: 0 0 0.09em $grey;
+  }
+}

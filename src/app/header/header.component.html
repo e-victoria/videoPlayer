@@ -14,7 +14,7 @@
       <a [routerLink]="['/signin']" class="btn main-nav__profile-btn" #loginBtn>Log in</a>
     </div>
     <div *ngIf="searchResults" class="movies-wrapper">
-      <app-search-result class="result" *ngFor="let movie of searchResults" [iVideo]="movie"></app-search-result>
+      <app-search-result class="result" *ngFor="let movie of searchResults" [iVideo]="movie" (click)="onClickHide()"></app-search-result>
     </div>
 
   </nav>
