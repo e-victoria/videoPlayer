@@ -8,8 +8,8 @@
     <label for="newVideoUrl" class="upload-video__label">Url:</label>
     <input id="newVideoUrl" class="upload-video__input" type="text" formControlName="url">
     <label for="newVideoThumbnail" class="upload-video__label upload-video__filelabel">Thumbnail:</label>
-    <input formControlName="video_thumbnail" id="newVideoThumbnail" class="upload-video__input upload-video__fileinput" type="file" accept="image/*">
-    <button class="btn upload-video__btn" type="submit" (click)="uploadVideo($event)">Upload</button>
+    <input (change)="uploadImg($event)" formControlName="video_thumbnail" id="newVideoThumbnail" class="upload-video__input upload-video__fileinput" type="file" accept="image/*">
+    <button (click)="saveVideo($event)" class="btn upload-video__btn" type="submit">Upload</button>
   </form>
 </section>
 <router-outlet></router-outlet>

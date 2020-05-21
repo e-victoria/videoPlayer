@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  localHost: "http://localhost:3000/"
+  localHost: "http://localhost:3000/",
+  firebase: {
+    apiKey: "AIzaSyCowmHNKNdpkJvDctmmUR4-msNPxPg8KlM",
+    authDomain: "video-player-6472d.firebaseapp.com",
+    databaseURL: "https://video-player-6472d.firebaseio.com/",
+    projectId: "video-player-6472d",
+    storageBucket: "video-player-6472d.appspot.com",
+    messagingSenderId: "902746048910"
+  }
 };
 
 /*
