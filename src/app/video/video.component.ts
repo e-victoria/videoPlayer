@@ -47,10 +47,9 @@ export class VideoComponent implements OnInit{
           });
         that.movie.video_thumbnail = '';
         if (this.movie.url.split('.').pop() !== 'mp4') {
-          console.log(this.movie.url.split('.'));
           that.myVideo.nativeElement.style.display = 'none';
           that.iframe.nativeElement.classList.add('show');
-          that.controls.nativeElement.style.display = 'none';
+          that.controls ? that.controls.nativeElement.style.display = 'none' : '';
         }
     };
 

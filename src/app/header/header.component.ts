@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} f
 import { HeaderService } from './header.service';
 import IVideo from '../video/video';
 import {VideoData} from '../search-result/videoData';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -22,13 +23,14 @@ export class HeaderComponent implements AfterViewInit {
   constructor(private headerService: HeaderService) { }
 
   ngAfterViewInit(): void {
+    if (window.location.href.split('/').length > 3) {
+    }
     if (localStorage.getItem('token')) {
       this.loginBtn.nativeElement.textContent = 'Log out';
     }
   }
 
   getInput() {
-    console.log(this.loginBtn);
     const that = this;
     function getData(data) {
       that.searchResults = data;

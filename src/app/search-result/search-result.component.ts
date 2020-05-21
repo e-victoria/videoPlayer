@@ -34,6 +34,10 @@ export class SearchResultComponent implements OnInit{
       });
   }
 
+  navigate() {
+    window.location.href = 'video/' + this.iVideo.video_id;
+  }
+
   play() {
     this.videoElement.nativeElement.play();
   }

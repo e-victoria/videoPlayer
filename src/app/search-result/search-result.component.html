@@ -1,5 +1,4 @@
-
-<div class="video__wrapper" [routerLink]="['/video', iVideo.video_id]">
+<div class="video__wrapper" (click)="navigate()" [routerLink]="['/video', iVideo.video_id]">
   <video #video
          class="video__screenshot"
          [volume]="0"
