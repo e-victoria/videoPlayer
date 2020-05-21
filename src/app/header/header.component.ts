@@ -35,4 +35,11 @@ export class HeaderComponent implements AfterViewInit {
     }
     this.headerService.getMoviesListByTitle(this.value, getData);
   }
+
+  onClickHide(){
+    const movieList = document.querySelector('.movies-wrapper');
+    movieList.addEventListener('click', () =>{
+      movieList.remove();
+    })
+  }
 }

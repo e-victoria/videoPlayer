@@ -23,4 +23,5 @@ export class SearchResultComponent {
     this.videoElement.nativeElement.currentTime = 0;
   }
 
+
 }

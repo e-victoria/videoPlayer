@@ -1,3 +1,4 @@
+
 <div class="video__wrapper" [routerLink]="['/video', iVideo.video_id]">
   <video #video
          class="video__screenshot"
@@ -5,8 +6,10 @@
          [src]="iVideo.url"
          poster= "../../assets/img/{{iVideo.video_thumbnail ? iVideo.video_thumbnail : 'unavailable.png'}}"
          (mouseover)="play()"
-         (mouseout)="reset()">
+         (mouseout)="reset()"
+  >
   </video>
   <p class="video__title">{{iVideo.video_title}}</p>
 
 </div>
+
