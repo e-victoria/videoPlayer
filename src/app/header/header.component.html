@@ -1,5 +1,6 @@
 <header class="page-header">
   <nav class="main-nav">
+    <a [routerLink]="['/']" class="home__button fas fa-home"></a>
     <div class="main-nav__search nav-search">
         <label for="name" class="visually-hidden">Search phrase:</label>
         <input class="nav-search__input" id="name" type="text" placeholder="Search" [(ngModel)]="value" (keyup.enter)="getInput()">

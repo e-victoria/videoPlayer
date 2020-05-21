@@ -76,3 +76,10 @@
 .result:not(:last-child) {
   border-bottom: 0.1em solid $grey-lighter;
 }
+
+.home__button{
+  margin: 0.5rem;
+  padding-right: 0.5rem;
+  text-decoration: none;
+  color: black;
+}
